@@ -350,6 +350,7 @@
 "Assets/BasicMovement3D.cs"
 "Assets/MouseControlledCamera.cs"
 "Assets/TagBot.cs"
+"Assets/TagStick.cs"
 -langversion:9.0
 
 /deterministic
