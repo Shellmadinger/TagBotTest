@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class TagStick : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public TagBot tagBool;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "TagBodyPlayer" && tagBool.isTagged == true)
+        {
+            tagBool.isTagged = false;
+        }
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TagBody
   - TagStick
+  - TagStickPlayer
+  - TagBodyPlayer
   layers:
   - Default
   - TransparentFX
