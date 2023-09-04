@@ -15,7 +15,7 @@ public class TagBot : MonoBehaviour
         tagBody = gameObject.GetComponent<Rigidbody>();
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         
         if(isTagged == true)
@@ -27,7 +27,11 @@ public class TagBot : MonoBehaviour
         }
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, speed * Time.deltaTime, 0.0f);
         transform.rotation = Quaternion.LookRotation(newDirection);
-        transform.position += transform.forward * speed * Time.deltaTime;
+    }
+
+    private void FixedUpdate()
+    {
+        tagBody.velocity = transform.forward * speed;
     }
 
     private void OnCollisionEnter(Collision collision)
