@@ -15,22 +15,19 @@ public class TagBot : MonoBehaviour
         tagBody = gameObject.GetComponent<Rigidbody>();
     }
     // Update is called once per frame
-
-    private void Update()
+    void FixedUpdate()
     {
-        if (isTagged == true)
+        
+        if(isTagged == true)
         {
             targetDirection = (player.transform.position - transform.position).normalized;
         }
-        else
-        {
-            targetDirection = (transform.position - player.transform.position).normalized;
+        else{
+            targetDirection = (transform.position- player.transform.position).normalized;
         }
-        transform.rotation = Quaternion.LookRotation(targetDirection);
-    }
-    void FixedUpdate()
-    {
-        tagBody.velocity = new Vector3(targetDirection.x, 0, targetDirection.y) * speed;
+        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, speed * Time.deltaTime, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDirection);
+        transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     private void OnCollisionEnter(Collision collision)
