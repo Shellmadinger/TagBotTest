@@ -9,6 +9,7 @@ public class TagBot : MonoBehaviour
     public bool isTagged = true;
     Vector3 targetDirection;
     Rigidbody tagBody;
+    public HudManager ui;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class TagBot : MonoBehaviour
         if(collision.gameObject.tag == "TagStickPlayer" && isTagged == false)
         {
             isTagged = true;
+            ui.uiBool = false;
         }
        
     }
